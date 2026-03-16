@@ -1,19 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Lady Bug Arcade</title>
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  
-<script src="data/loader.js"></script>
+  <title>Lady Bug</title>
 
-<style>
-
-  html, body {
+  <style>
+    html, body {
       margin: 0;
       background: black;
       height: 100%;
@@ -22,17 +18,55 @@
     }
 
     #game {
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
     }
 
-</style>
+    /* Botão de fullscreen – canto superior ESQUERDO */
+    #fullscreen-btn {
+      position: fixed;
+      top: 8px;
+      left: 8px;              /* aqui troca de right pra left */
+      z-index: 20;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+      display: none;          /* começa escondido */
+    }
 
+    /* Overlay de toque (se você quiser manter) */
+    #overlay {
+      position: fixed;
+      inset: 0;
+      background: black;
+      color: white;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      cursor: pointer;
+    }
+  </style>
+
+	<script>
+    // SNES no seu servidor
+    EJS_player = "#game";
+    EJS_core = "arcade";
+    EJS_gameUrl = "roms/ladybug.zip"; // troque pelo nome certo
+    EJS_pathtodata = "data/";
+    EJS_startOnLoaded = true; // deixa o EmulatorJS mostrar o botão dele
+    EJS_fullscreenOnLoaded = false;
+    </script>
+  <script src="data/loader.js"></script>
 </head>
-
 <body>
 
-<div id="overlay">▶ TOCAR PARA JOGAR</div>
+  <div id="overlay">▶ TOCAR PARA JOGAR</div>
   <div id="fullscreen-btn">⛶ Tela cheia</div>
   <div id="game"></div>
 
@@ -79,15 +113,7 @@
 
     // Garantir estado inicial do botão (fora de fullscreen -> aparece)
     updateFullscreenButton();
-
-<script>
-
-EJS_player = "#game"
-EJS_core = "arcade"
-EJS_gameUrl = "roms/ladybug.zip"
-EJS_pathtodata = "data/"
-
-</script>
+  </script>
 
 </body>
 </html>
