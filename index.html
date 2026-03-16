@@ -1,59 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>NES – Zelda</title>
+<meta charset="UTF-8">
+<title>Lady Bug Arcade</title>
 
-<script>
-  EJS_player = "#game";
-  EJS_core = "nes";                       // NES
-  EJS_gameUrl = "roms/zelda.nes";       // sua ROM
-  EJS_pathtodata = "https://cdn.emulatorjs.org/latest/data/";  
-  EJS_startOnLoaded = true;
-  EJS_fullscreenOnLoaded = false;
-</script>
-
-<script src="https://cdn.emulatorjs.org/latest/data/loader.js"></script>
+<script src="emulator/loader.js"></script>
 
 <style>
-  html, body {
-    margin: 0;
-    background: black;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  #game {
-    width: 100vw;
-    height: 100vh;
-  }
-
-  /* Overlay de toque */
-  #overlay {
-    position: fixed;
-    inset: 0;
-    background: black;
-    color: white;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    cursor: pointer;
-  }
+body{
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
 </style>
+
 </head>
 
 <body>
-  <div id="overlay">▶ TOCAR PARA JOGAR</div>
-  <div id="game"></div>
 
-  <script>
-    const overlay = document.getElementById("overlay");
-    overlay.addEventListener("click", () => {
-      overlay.remove();
-      document.documentElement.requestFullscreen?.();
-    });
-  </script>
+<div id="game"></div>
+
+<script>
+
+EJS_player = "#game"
+EJS_core = "arcade"
+EJS_gameUrl = "roms/ladybug.zip"
+EJS_pathtodata = "emulator/data/"
+
+</script>
+
 </body>
 </html>
